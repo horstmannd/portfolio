@@ -28,13 +28,18 @@ $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, forma
 // Pic, Message and Skills
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var formattedSkills1 = HTMLskills.replace("%data%", bio.skills[0]);
-var formattedSkills2 = HTMLskills.replace("%data%", bio.skills[1]);
-var formattedSkills3 = HTMLskills.replace("%data%", bio.skills[2]);
-var formattedSkills4 = HTMLskills.replace("%data%", bio.skills[3]);
-var formattedSkills5 = HTMLskills.replace("%data%", bio.skills[4]);
-$("#header").append(formattedBioPic, formattedWelcomeMsg, HTMLskillsStart);
-$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
+$("#header").append(formattedBioPic, formattedWelcomeMsg);
+//$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+	var formattedSkills1 = HTMLskills.replace("%data%", bio.skills[0]);
+	var formattedSkills2 = HTMLskills.replace("%data%", bio.skills[1]);
+	var formattedSkills3 = HTMLskills.replace("%data%", bio.skills[2]);
+	var formattedSkills4 = HTMLskills.replace("%data%", bio.skills[3]);
+	var formattedSkills5 = HTMLskills.replace("%data%", bio.skills[4]);
+	$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);	
+}
 
 // Create Project Object (JSON style)
 var projects = [{
