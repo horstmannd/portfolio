@@ -55,13 +55,24 @@ $(".work-entry").append(formattedWorkEmployer, formattedWorkTitle, formattedWork
 
 
 // Create Education Object
-// Using Bracket Notation to create this object
-var education = {};
-education["name"] = "Minnesota State University, Mankato";
-education["degree"] = "Bachelor of Arts";
-education["dates"] = "1999 - 2007";
-education["location"] = "Mankato, MN";
-education["major"] = "French";
+// Using JSON
+var education = {
+	"schools": [{
+		"name": "Minnesota State University, Mankato",
+		"degree": "Bachelor of Arts",
+		"dates": "1999 - 2007",
+		"location": "Mankato, MN",
+		"major": "French",
+		"minor": "Creative Writing (emphasis on poetry)"
+	}],
+	"onlineCourses": [{
+		"title": "Intro to Programming",
+		"school": "Udacity",
+		"dates": "September 2016 - Present",
+		"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
+
+	}]
+};
 
 $("#education").append(HTMLschoolStart);
 var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
@@ -69,6 +80,7 @@ var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.degree)
 var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.dates);
 var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.location);
 var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.major);
-$(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor);
+var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.minor);
+$(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor, formattedSchoolMinor);
 
 
