@@ -71,20 +71,35 @@ $(".project-entry").append(formattedProjectTitle2, formattedProjectDates2, forma
 
 // Create Work Object
 // Using Dot Notation to create this object
-var work = {};
-work.employer = "The Schwan's Food Company";
-work.title = "Multimedia Producer";
-work.dates = "September 2016 - present";
-work.location = "Marshall, MN";
-work.description = "To da da da.";
+var work = {
+	"jobs": [{
+			"employer": "The Schwan's Food Company",
+			"title": "Multimedia Producer",
+			"dates": "September 2016 - present",
+			"location": "Marshall, MN",
+			"description": "To da da da."
+	}, {
+			"employer": "IHOPU",
+			"title": "Media Coordinator and Producer",
+			"dates": "2009 - 2013",
+			"location": "Grandview, MO",
+			"description": "To da da da."
+		}]
+};
 
-$("#workExperience").append(HTMLworkStart);
-var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.employer);
-var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.title);
-var formattedWorkDates = HTMLworkDates.replace("%data%", work.dates);
-var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
-var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.description);
-$(".work-entry").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
+// Got the idea to do this from this tutorial:
+// https://www.youtube.com/watch?v=rJesac0_Ftw
+for (var job = 0; job < work.jobs.length; job++) {
+	$("#workExperience").append(HTMLworkStart);		
+
+	var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);	
+	$(".work-entry:last").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
+}
+
 
 
 // Create Education Object
