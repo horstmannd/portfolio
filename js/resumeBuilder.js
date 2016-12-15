@@ -52,7 +52,17 @@ var projects = [{
 
 $("#projects").append(HTMLprojectStart);
 var formattedProjectTitle1 = HTMLprojectTitle.replace("%data%", projects[0].title);
-$(".project-entry").append(formattedProjectTitle1);
+var formattedProjectDates1 = HTMLprojectDates.replace("%data%", projects[0].dates);
+var formattedProjectDescription1 = HTMLprojectDescription.replace("%data%", projects[0].description);
+var formattedProjectImage1 = HTMLprojectImage.replace("%data%", projects[0].image);
+$(".project-entry").append(formattedProjectTitle1, formattedProjectDates1, formattedProjectDescription1, formattedProjectImage1);
+
+var formattedProjectTitle2 = HTMLprojectTitle.replace("%data%", projects[1].title);
+var formattedProjectDates2 = HTMLprojectDates.replace("%data%", projects[1].dates);
+var formattedProjectDescription2 = HTMLprojectDescription.replace("%data%", projects[1].description);
+var formattedProjectImage2 = HTMLprojectImage.replace("%data%", projects[1].image);
+$(".project-entry").append(formattedProjectTitle2, formattedProjectDates2, formattedProjectDescription2, formattedProjectImage2);
+
 
 // Create Work Object
 // Using Dot Notation to create this object
