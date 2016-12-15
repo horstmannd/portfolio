@@ -38,17 +38,37 @@ $("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, format
 
 // Create Work Object
 var work = {
-	"currentPosition" : "Multimedia Producer",
 	"employer" : "The Schwan's Food Company",
-	"yearsWorked" : "September 2016 - present",
-	"city" : "Marshall, MN"
+	"title" : "Multimedia Producer",
+	"dates" : "September 2016 - present",
+	"location" : "Marshall, MN",
+	"description" : "To da da da."
 };
+
+$("#workExperience").append(HTMLworkStart);
+var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.employer);
+var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.title);
+var formattedWorkDates = HTMLworkDates.replace("%data%", work.dates);
+var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
+var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.description);
+$(".work-entry").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
+
 
 // Create Education Object
 var education = {
-	"nameOfSchool" : "Minnesota State University, Mankato",
-	"yearAttended" : "1999 - 2007",
-	"city" : "Mankato, MN"
+	"name" : "Minnesota State University, Mankato",
+	"degree" : "Bachelor of Arts",
+	"dates" : "1999 - 2007",
+	"location" : "Mankato, MN",
+	"major" : "French"
 };
+
+$("#education").append(HTMLschoolStart);
+var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
+var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.degree);
+var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.dates);
+var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.location);
+var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.major);
+$(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor);
 
 
