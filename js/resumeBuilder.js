@@ -36,6 +36,24 @@ var formattedSkills5 = HTMLskills.replace("%data%", bio.skills[4]);
 $("#header").append(formattedBioPic, formattedWelcomeMsg, HTMLskillsStart);
 $("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
 
+// Create Project Object (JSON style)
+var projects = [{
+	"title" : "Portfolio Site",
+	"dates" : "December, 2016",
+	"description" : "Some text",
+	"image" : "images/fry.jpg"
+},
+{
+	"title" : "Harmonis",
+	"dates" : "2015",
+	"description" : "Developer",
+	"image" : "images/fry.jpg"
+}];
+
+$("#projects").append(HTMLprojectStart);
+var formattedProjectTitle1 = HTMLprojectTitle.replace("%data%", projects[0].title);
+$(".project-entry").append(formattedProjectTitle1);
+
 // Create Work Object
 // Using Dot Notation to create this object
 var work = {};
