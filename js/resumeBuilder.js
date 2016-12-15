@@ -18,7 +18,7 @@
 // $("#main").append(funThoughts);
 
 // Arrays:
-var skills = ["Script writing", "programming", "HTML"]
+var skills = ["Script writing", "programming", "HTML"];
 
 // Using Index:
 // $("#main").append(skills[0]);
@@ -29,22 +29,43 @@ var skills = ["Script writing", "programming", "HTML"]
 // Creating objects with "Object Literal Notation":
 // Note: you can create a property referencing an array (skills, here)
 var bio = {
-	"name" : "<h2>Dustin Horstmann</h2>",
-	"role" : "<p>Front-end Web Developer</p>",
-	"contactInfo" : "dustin.horstmann@gmail.com",
-	"pictureURL" : "www.google.com",
+	"name" : "Dustin Horstmann",
+	"role" : "Front-end Web Developer",
+	"contactInfo" : {
+		"mobile" : "507-530-9324",
+		"email" : "dustin.horstmann@gmail.com",
+		"github" : "horstmannd",
+		"location" : "Marshall, MN"
+	},
+	"pictureURL" : "images/fry.jpg",
 	"welcomeMessage" : "Thank you for visiting my site!",
 	"skills" : skills
 };
 
-// To access above properties (object name + property):
-$("#main").append(bio.name, bio.role);
-
-
-var name = "Dustin Horstmann";
-var role = "Front-end Web Developer";
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role)
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contactInfo.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
+$("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+
+// Work Object in Dot Notation
+
+var work = {
+	"currentPosition" : "Multimedia Producer",
+	"employer" : "The Schwan's Food Company",
+	"yearsWorked" : "September 2016 - present",
+	"city" : "Marshall, MN"
+};
+
+var education = {
+	"nameOfSchool" : "Minnesota State University, Mankato",
+	"yearAttended" : "1999 - 2007",
+	"city" : "Mankato, MN"
+};
+
 
