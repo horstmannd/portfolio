@@ -37,13 +37,13 @@ $("#header").append(formattedBioPic, formattedWelcomeMsg, HTMLskillsStart);
 $("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
 
 // Create Work Object
-var work = {
-	"employer" : "The Schwan's Food Company",
-	"title" : "Multimedia Producer",
-	"dates" : "September 2016 - present",
-	"location" : "Marshall, MN",
-	"description" : "To da da da."
-};
+// Using Dot Notation to create this object
+var work = {};
+work.employer = "The Schwan's Food Company";
+work.title = "Multimedia Producer";
+work.dates = "September 2016 - present";
+work.location = "Marshall, MN";
+work.description = "To da da da.";
 
 $("#workExperience").append(HTMLworkStart);
 var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.employer);
@@ -55,13 +55,13 @@ $(".work-entry").append(formattedWorkEmployer, formattedWorkTitle, formattedWork
 
 
 // Create Education Object
-var education = {
-	"name" : "Minnesota State University, Mankato",
-	"degree" : "Bachelor of Arts",
-	"dates" : "1999 - 2007",
-	"location" : "Mankato, MN",
-	"major" : "French"
-};
+// Using Bracket Notation to create this object
+var education = {};
+education["name"] = "Minnesota State University, Mankato";
+education["degree"] = "Bachelor of Arts";
+education["dates"] = "1999 - 2007";
+education["location"] = "Mankato, MN";
+education["major"] = "French";
 
 $("#education").append(HTMLschoolStart);
 var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
