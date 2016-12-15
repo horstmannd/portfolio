@@ -57,30 +57,37 @@ $(".work-entry").append(formattedWorkEmployer, formattedWorkTitle, formattedWork
 // Create Education Object
 // Using JSON
 var education = {
-	"schools": [{
-		"name": "Minnesota State University, Mankato",
-		"degree": "Bachelor of Arts",
-		"dates": "1999 - 2007",
-		"location": "Mankato, MN",
-		"major": "French",
-		"minor": "Creative Writing (emphasis on poetry)"
-	}],
-	"onlineCourses": [{
-		"title": "Intro to Programming",
-		"school": "Udacity",
-		"dates": "September 2016 - Present",
-		"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
-
-	}]
+	"name" : "Minnesota State University, Mankato",
+	"degree" : "Bachelor of Arts",
+	"dates" : "1999 - 2007",
+	"location" : "Mankato, MN",
+	"major" : "French",
+	"minor" : "Creative Writing (with an emphasis on peotry)"
 };
 
+var onlineEducation = {
+	"title": "Intro to Programming",
+	"school": "Udacity",
+	"dates": "September 2016 - Present",
+	"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
+};
+
+
 $("#education").append(HTMLschoolStart);
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[0].name);
-var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
-var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[0].dates);
-var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[0].location);
-var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[0].major);
-var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools[0].minor);
+var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
+var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.degree);
+var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.dates);
+var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.location);
+var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.major);
+var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.minor);
 $(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor, formattedSchoolMinor);
+
+$("#education").append(HTMLonlineClasses, HTMLschoolStart);
+var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineEducation.title);
+var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineEducation.school);
+var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineEducation.dates);
+var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineEducation.url);
+$(".education-entry").append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+
 
 
