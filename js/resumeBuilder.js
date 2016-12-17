@@ -89,7 +89,8 @@ var work = {
 
 // Got the idea to do this from this tutorial:
 // https://www.youtube.com/watch?v=rJesac0_Ftw
-for (var job = 0; job < work.jobs.length; job++) {
+function displayWork() {
+	for (var job = 0; job < work.jobs.length; job++) {
 	$("#workExperience").append(HTMLworkStart);		
 
 	var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -98,9 +99,11 @@ for (var job = 0; job < work.jobs.length; job++) {
 	var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);	
 	$(".work-entry:last").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
+	}
 }
 
-
+// Invoke function
+displayWork();
 
 // Create Education Object
 // Using JSON
