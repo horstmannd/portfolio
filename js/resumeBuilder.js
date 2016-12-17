@@ -1,36 +1,32 @@
 // Create bio object (w/ sObject Literal Notation)
 var bio = {
-	"name" : "Dustin Horstmann",
-	"role" : "Front-end Web Developer",
-	"contactInfo" : {
-		"mobile" : "507-530-9324",
-		"email" : "dustin.horstmann@gmail.com",
-		"github" : "horstmannd",
-		"location" : "Marshall, MN"
+	"name": "Dustin Horstmann",
+	"role": "Front-end Web Developer",
+	"contactInfo": {
+		"mobile": "507-530-9324",
+		"email": "dustin.horstmann@gmail.com",
+		"github": "horstmannd",
+		"location": "Marshall, MN"
 	},
-	"pictureURL" : "images/fry.jpg",
-	"welcomeMessage" : "Thank you for visiting my site!",
-	"skills" : ["HTML", "CSS", "JavaScript", "jQuery", "Python"]
+	"pictureURL": "images/fry.jpg",
+	"welcomeMessage": "Thank you for visiting my site!",
+	"skills": ["HTML", "CSS", "JavaScript", "jQuery", "Python"]
 };
-
 // Name and Role
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedName, formattedRole);
-
 // Contact Info
 var formattedMobile = HTMLmobile.replace("%data%", bio.contactInfo.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
 var formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
 $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
-
 // Pic, Message and Skills
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 $("#header").append(formattedBioPic, formattedWelcomeMsg);
 //$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
-
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 	var formattedSkills1 = HTMLskills.replace("%data%", bio.skills[0]);
@@ -38,92 +34,91 @@ if (bio.skills.length > 0) {
 	var formattedSkills3 = HTMLskills.replace("%data%", bio.skills[2]);
 	var formattedSkills4 = HTMLskills.replace("%data%", bio.skills[3]);
 	var formattedSkills5 = HTMLskills.replace("%data%", bio.skills[4]);
-	$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);	
+	$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
 }
-
 // Create Project Object (JSON style)
-var projects = [{
-	"title" : "Portfolio Site",
-	"dates" : "December, 2016",
-	"description" : "Some text",
-	"image" : "images/fry.jpg"
-},
-{
-	"title" : "Harmonis",
-	"dates" : "2015",
-	"description" : "Developer",
-	"image" : "images/fry.jpg"
-}];
+var projects = {
+	"projects": [{
+		"title": "Portfolio Site",
+		"dates": "December, 2016",
+		"description": "Some text",
+		"images": ["images/fry.jpg"]
+	}, {
+		"title": "Harmonis",
+		"dates": "2015",
+		"description": "Developer",
+		"images": ["images/fry.jpg"]
+	}]
+};
 
-$("#projects").append(HTMLprojectStart);
-var formattedProjectTitle1 = HTMLprojectTitle.replace("%data%", projects[0].title);
-var formattedProjectDates1 = HTMLprojectDates.replace("%data%", projects[0].dates);
-var formattedProjectDescription1 = HTMLprojectDescription.replace("%data%", projects[0].description);
-var formattedProjectImage1 = HTMLprojectImage.replace("%data%", projects[0].image);
-$(".project-entry").append(formattedProjectTitle1, formattedProjectDates1, formattedProjectDescription1, formattedProjectImage1);
-
-var formattedProjectTitle2 = HTMLprojectTitle.replace("%data%", projects[1].title);
-var formattedProjectDates2 = HTMLprojectDates.replace("%data%", projects[1].dates);
-var formattedProjectDescription2 = HTMLprojectDescription.replace("%data%", projects[1].description);
-var formattedProjectImage2 = HTMLprojectImage.replace("%data%", projects[1].image);
-$(".project-entry").append(formattedProjectTitle2, formattedProjectDates2, formattedProjectDescription2, formattedProjectImage2);
+// Encapsulation
+projects.display = function() {
+	for (var project = 0; project < projects.projects.length; project++) {
+		$("#projects").append(HTMLprojectStart);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+		if (projects.projects[project].images.length > 0) {
+			for (var image = 0; image < projects.projects.images.length; image++) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+	}
+};
 
 
 // Create Work Object
 // Using Dot Notation to create this object
 var work = {
 	"jobs": [{
-			"employer": "The Schwan's Food Company",
-			"title": "Multimedia Producer",
-			"dates": "September 2016 - present",
-			"location": "Marshall, MN",
-			"description": "To da da da."
+		"employer": "The Schwan's Food Company",
+		"title": "Multimedia Producer",
+		"dates": "September 2016 - present",
+		"location": "Marshall, MN",
+		"description": "To da da da."
 	}, {
-			"employer": "IHOPU",
-			"title": "Media Coordinator and Producer",
-			"dates": "2009 - 2013",
-			"location": "Grandview, MO",
-			"description": "To da da da."
-		}]
+		"employer": "IHOPU",
+		"title": "Media Coordinator and Producer",
+		"dates": "2009 - 2013",
+		"location": "Grandview, MO",
+		"description": "To da da da."
+	}]
 };
-
 // Got the idea to do this from this tutorial:
 // https://www.youtube.com/watch?v=rJesac0_Ftw
 function displayWork() {
 	for (var job = 0; job < work.jobs.length; job++) {
-	$("#workExperience").append(HTMLworkStart);		
-
-	var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);	
-	$(".work-entry:last").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
+		$("#workExperience").append(HTMLworkStart);
+		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
 	}
 }
-
 // Invoke function
 displayWork();
-
 // Create Education Object
 // Using JSON
 var education = {
-	"name" : "Minnesota State University, Mankato",
-	"degree" : "Bachelor of Arts",
-	"dates" : "1999 - 2007",
-	"location" : "Mankato, MN",
-	"major" : "French",
-	"minor" : "Creative Writing (with an emphasis on peotry)"
+	"name": "Minnesota State University, Mankato",
+	"degree": "Bachelor of Arts",
+	"dates": "1999 - 2007",
+	"location": "Mankato, MN",
+	"major": "French",
+	"minor": "Creative Writing (with an emphasis on peotry)"
 };
-
 var onlineEducation = {
 	"title": "Intro to Programming",
 	"school": "Udacity",
 	"dates": "September 2016 - Present",
 	"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
 };
-
-
 $("#education").append(HTMLschoolStart);
 var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
 var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.degree);
@@ -132,13 +127,24 @@ var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.loc
 var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.major);
 var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.minor);
 $(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor, formattedSchoolMinor);
-
 $("#education").append(HTMLonlineClasses, HTMLschoolStart);
 var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineEducation.title);
 var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineEducation.school);
 var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineEducation.dates);
 var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineEducation.url);
 $(".education-entry").append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
-
-
-
+// Log clicks
+$(document).click(function(loc) {
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x, y);
+});
+// Internationalize Name
+function inName(name) {
+	name = name.trim().split(" ");
+	console.log(name);
+	name[1] = name[1].toUpperCase();
+	name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+	return name[0] + " " + name[1];
+}
+//$('#main').append(internationalizeButton);
