@@ -103,8 +103,8 @@ function displayWork() {
 }
 // Invoke function
 displayWork();
+
 // Create Education Object
-// Using JSON
 var education = {
 	"schools": [{
 		"name": "Minnesota State University, Mankato",
@@ -113,28 +113,32 @@ var education = {
 		"location": "Mankato, MN",
 		"major": "French",
 		"minor": "Creative Writing (with an emphasis on peotry)"
+	}],
+	"onlineCourses": [{
+		"title": "Intro to Programming",
+		"school": "Udacity",
+		"dates": "September 2016 - Present",
+		"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
 	}]
 };
-var onlineEducation = {
-	"title": "Intro to Programming",
-	"school": "Udacity",
-	"dates": "September 2016 - Present",
-	"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
-};
+
 $("#education").append(HTMLschoolStart);
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools.name);
-var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools.degree);
-var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools.dates);
-var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
-var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools.major);
-var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools.minor);
+var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[0].name);
+var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
+var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[0].dates);
+var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[0].location);
+var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[0].major);
+var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools[0].minor);
 $(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor, formattedSchoolMinor);
-$("#education").append(HTMLonlineClasses, HTMLschoolStart);
-var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineEducation.title);
-var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineEducation.school);
-var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineEducation.dates);
-var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineEducation.url);
-$(".education-entry").append(formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+
+$("#education").append(HTMLschoolStart);
+var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[0].title);
+var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[0].school);
+var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[0].dates);
+var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[0].url);
+$(".education-entry:last").append(HTMLonlineClasses, formattedOnlineTitle, formattedOnlineSchool, formattedOnlineDates, formattedOnlineURL);
+
+
 // Log clicks
 $(document).click(function(loc) {
 	var x = loc.pageX;
