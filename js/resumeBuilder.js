@@ -88,9 +88,11 @@ var work = {
 		"description": "To da da da."
 	}]
 };
-// Got the idea to do this from this tutorial:
+
+// Encapsulate a function inside the work display method
+// Got the for loop idea here:
 // https://www.youtube.com/watch?v=rJesac0_Ftw
-function displayWork() {
+work.display = function () {
 	for (var job = 0; job < work.jobs.length; job++) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -100,9 +102,8 @@ function displayWork() {
 		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedWorkEmployer, formattedWorkTitle, formattedWorkDates, formattedWorkLocation, formattedWorkDescription);
 	}
-}
-// Invoke function
-displayWork();
+};
+work.display();
 
 // Create Education Object
 var education = {
