@@ -62,6 +62,13 @@ h5 {
 }
 
 
+.online-school-text, .degree-text, .title-text {
+  font-size: 14px;
+  color: #000;
+  line-height: 16px;
+  float: none;
+}
+
 .date-text {
   font-style: italic;
   font-size: 14px;
