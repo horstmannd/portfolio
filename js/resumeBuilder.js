@@ -2,7 +2,7 @@
 var bio = {
 	"name": "Dustin Horstmann",
 	"role": "Front-end Web Developer",
-	"contactInfo": {
+	"contacts": {
 		"mobile": "507-530-9324",
 		"email": "dustin.horstmann@gmail.com",
 		"github": "horstmannd",
@@ -17,10 +17,10 @@ var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedName, formattedRole);
 // Contact Info
-var formattedMobile = HTMLmobile.replace("%data%", bio.contactInfo.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contactInfo.email);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contactInfo.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 // Pic, Message and Skills
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
@@ -78,13 +78,13 @@ var work = {
 		"employer": "The Schwan's Food Company",
 		"title": "Multimedia Producer",
 		"dates": "September 2016 - present",
-		"location": "Marshall, MN",
+		"location": "Marshall, MN USA",
 		"description": "To da da da."
 	}, {
 		"employer": "IHOPU",
 		"title": "Media Coordinator and Producer",
 		"dates": "2009 - 2013",
-		"location": "Grandview, MO",
+		"location": "Grandview, MO USA",
 		"description": "To da da da."
 	}]
 };
@@ -106,12 +106,14 @@ displayWork();
 // Create Education Object
 // Using JSON
 var education = {
-	"name": "Minnesota State University, Mankato",
-	"degree": "Bachelor of Arts",
-	"dates": "1999 - 2007",
-	"location": "Mankato, MN",
-	"major": "French",
-	"minor": "Creative Writing (with an emphasis on peotry)"
+	"schools": [{
+		"name": "Minnesota State University, Mankato",
+		"degree": "Bachelor of Arts",
+		"dates": "1999 - 2007",
+		"location": "Mankato, MN",
+		"major": "French",
+		"minor": "Creative Writing (with an emphasis on peotry)"
+	}]
 };
 var onlineEducation = {
 	"title": "Intro to Programming",
@@ -120,12 +122,12 @@ var onlineEducation = {
 	"url": "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
 };
 $("#education").append(HTMLschoolStart);
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
-var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.degree);
-var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.dates);
-var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.location);
-var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.major);
-var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.minor);
+var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools.name);
+var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools.degree);
+var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools.dates);
+var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
+var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools.major);
+var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools.minor);
 $(".education-entry").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor, formattedSchoolMinor);
 $("#education").append(HTMLonlineClasses, HTMLschoolStart);
 var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineEducation.title);
@@ -147,4 +149,7 @@ function inName(name) {
 	name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 	return name[0] + " " + name[1];
 }
+
 //$('#main').append(internationalizeButton);
+
+$("#mapDiv").append(googleMap);
