@@ -36,7 +36,7 @@ if (bio.skills.length > 0) {
 	var formattedSkills5 = HTMLskills.replace("%data%", bio.skills[4]);
 	$("#skills").append(formattedSkills1, formattedSkills2, formattedSkills3, formattedSkills4, formattedSkills5);
 }
-// Create Project Object (JSON style)
+// Declare a projects object that holds project info
 var projects = {
 	"projects": [{
 		"title": "Portfolio Site",
@@ -51,7 +51,8 @@ var projects = {
 	}]
 };
 
-// Encapsulation
+// Encapsulate function in projects object that iterates through project info
+// and prints to index.html
 projects.display = function() {
 	for (var project = 0; project < projects.projects.length; project++) {
 		$("#projects").append(HTMLprojectStart);
@@ -71,8 +72,7 @@ projects.display = function() {
 };
 projects.display();
 
-// Create Work Object
-// Using Dot Notation to create this object
+// Declare a work object that holds job info
 var work = {
 	"jobs": [{
 		"employer": "The Schwan's Food Company",
@@ -105,7 +105,7 @@ work.display = function () {
 };
 work.display();
 
-// Create Education Object
+// Create Education object that holds education info
 var education = {
 	"schools": [{
 		"name": "Minnesota State University, Mankato",
