@@ -22,6 +22,7 @@ h6 {
 .work-entry,
 .project-entry {
   padding: 0 5%;
+  margin-bottom: 5px;
 }
 
 h1 {
@@ -34,7 +35,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: black;
   line-height: 29px;
   padding: 10px;
 }
@@ -62,9 +63,23 @@ h5 {
 }
 
 
-.online-school-text, .degree-text, .title-text {
+.school-name-text, .employer-text, .project-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  line-height: 16px;
+  float: none;
+}
+
+.online-school-text, .degree-text, .title-text, .major-minor-text {
   font-size: 14px;
   color: #000;
+  line-height: 16px;
+  float: none;
+}
+
+.class-site {
+  font-size: 14px;
   line-height: 16px;
   float: none;
 }
@@ -74,7 +89,7 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
+  float: none;
 }
 
 .location-text {
@@ -83,7 +98,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -93,7 +107,7 @@ p {
 }
 
 a {
-  color: #1199c3;
+  color: #000066;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -106,17 +120,25 @@ a {
   line-height: 28px;
 }
 
+#name {
+  color: #000066;
+}
+
 #skills-h3 {
-  color: #f5ae23;
+  color: #000066;
   display: none;
+}
+
+.education-entry h3 {
+  padding-left: 0;
 }
 
 .orange {
   background-color: #f5ae23;
 }
 
-.orange-text {
-  color: #f5ae23;
+.accent-text {
+  color: #000066;
 }
 
 .white-text {
@@ -136,7 +158,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #0066FF;
 }
 
 .flex-box {
@@ -180,6 +202,11 @@ span {
 
 #lets-connect {
   text-align: center;
+  background-color: black;
+}
+
+#lets-connect h2 {
+  color: white;
 }
 
 /* Media queries to handle various device widths */

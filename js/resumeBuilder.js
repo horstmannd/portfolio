@@ -3,10 +3,10 @@ var bio = {
 	"name": "Dustin Horstmann",
 	"role": "Front-end Web Developer",
 	"contacts": {
-		"mobile": "507-530-9324",
+		"mobile": "555-555-5555",
 		"email": "dustin.horstmann@gmail.com",
 		"github": "horstmannd",
-		"location": "Marshall, MN"
+		"location": "Smalltown, MN"
 	},
 	"pictureURL": "images/fry.jpg",
 	"welcomeMessage": "Thank you for visiting my site!",
@@ -45,12 +45,12 @@ var projects = {
 	"projects": [{
 		"title": "Portfolio Site",
 		"dates": "December, 2016",
-		"description": "Some text",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"images": ["images/fry.jpg"]
 	}, {
 		"title": "Harmonis",
 		"dates": "2015",
-		"description": "Developer",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"images": ["images/fry.jpg"]
 	}]
 };
@@ -83,13 +83,13 @@ var work = {
 		"title": "Multimedia Producer",
 		"dates": "September 2016 - present",
 		"location": "Marshall, MN USA",
-		"description": "To da da da."
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 	}, {
 		"employer": "IHOPU",
 		"title": "Media Coordinator and Producer",
 		"dates": "2009 - 2013",
 		"location": "Grandview, MO USA",
-		"description": "To da da da."
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 	}]
 };
 
