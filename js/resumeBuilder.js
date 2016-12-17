@@ -62,14 +62,14 @@ projects.display = function() {
 		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedDescription);
 		if (projects.projects[project].images.length > 0) {
-			for (var image = 0; image < projects.projects.images.length; image++) {
+			for (var image = 0; image < projects.projects[project].images.length; image++) {
 				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 				$(".project-entry:last").append(formattedImage);
 			}
 		}
 	}
 };
-
+projects.display();
 
 // Create Work Object
 // Using Dot Notation to create this object
