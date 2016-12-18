@@ -8,9 +8,9 @@ var bio = {
         "github": "horstmannd",
         "location": "Smalltown, MN"
     },
-    "pictureURL": "images/fry.jpg",
     "welcomeMessage": "Thank you for visiting my site!",
-    "skills": ["HTML", "CSS", "JavaScript", "jQuery", "Python"]
+    "skills": ["HTML", "CSS", "JavaScript", "jQuery", "Python"],
+    "biopic": "images/fry.jpg"
 };
 
 // Encapsulate function in bio object to get info from object and 
@@ -26,10 +26,10 @@ bio.display = function() {
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+    $("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 
     // Pic, Message and Skills
-    var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedBioPic, formattedWelcomeMsg);
     if (bio.skills.length > 0) {
@@ -83,14 +83,14 @@ var work = {
     "jobs": [{
         "employer": "The Schwan's Food Company",
         "title": "Multimedia Producer",
-        "dates": "September 2016 - present",
         "location": "Marshall, MN USA",
+        "dates": "September 2016 - present",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }, {
         "employer": "IHOPU",
         "title": "Media Coordinator and Producer",
-        "dates": "2009 - 2013",
         "location": "Grandview, MO USA",
+        "dates": "2009 - 2013",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }]
 };
@@ -116,11 +116,12 @@ work.display();
 var education = {
     "schools": [{
         "name": "Minnesota State University, Mankato",
-        "degree": "Bachelor of Arts",
-        "dates": "1999 - 2007",
         "location": "Mankato, MN",
-        "major": "French",
-        "minor": "Creative Writing (with an emphasis on peotry)"
+        "degree": "Bachelor of Arts",
+        "majors": ["French"],
+        "minor": "Creative Writing (with an emphasis on peotry)",
+        "dates": "1999 - 2007",
+        "url": "https://www.mnsu.edu/"
     }],
     "onlineCourses": [{
         "title": "Intro to Programming",
@@ -136,12 +137,23 @@ education.display = function() {
     for (var school = 0; school < education.schools.length; school++) {
         $("#education").append(HTMLschoolStart);
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+        $(".education-entry:last").append(formattedSchoolName);
         var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        $(".education-entry:last").append(formattedSchoolDegree);
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+        $(".education-entry:last").append(formattedSchoolDates);
         var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-        var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+        $(".education-entry:last").append(formattedSchoolLocation);
+        if (education.schools[school].majors.length > 0) {
+            for (var major = 0; major < education.schools[school].majors.length; major++) {
+                var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
+                $(".education-entry:last").append(formattedSchoolMajor);
+            }
+        }
         var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
-        $(".education-entry:last").append(formattedSchoolName, formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajor, formattedSchoolMinor);
+        $(".education-entry:last").append(formattedSchoolMinor);
+        var formattedSchoolURL = HTMLschoolURL.replace("%data%", education.schools[school].url);
+        $(".education-entry:last").append(formattedSchoolURL);
     }
 
     for (var onlineCourse = 0; onlineCourse < education.onlineCourses.length; onlineCourse++) {

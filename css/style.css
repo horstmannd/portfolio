@@ -76,7 +76,7 @@ h5 {
     float: none;
 }
 
-.class-site {
+.class-site, .school-site {
     font-size: 14px;
     line-height: 16px;
     float: none;
@@ -197,6 +197,10 @@ span {
 #lets-connect {
     text-align: center;
     background-color: black;
+}
+
+#lets-connect .accent-text {
+    color: #ccc;
 }
 
 #lets-connect h2 {

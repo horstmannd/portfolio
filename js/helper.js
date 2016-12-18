@@ -35,6 +35,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<div class="major-minor-text">Major: %data%</div>';
 var HTMLschoolMinor = '<div class="major-minor-text">Minor: %data%</div>';
+var HTMLschoolURL = '<div class="school-site"><a href="%data%">Visit site</a></div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<div class="school-name-text">%data%</div>';
